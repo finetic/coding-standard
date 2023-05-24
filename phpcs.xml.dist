@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset>
+    <file>src</file>
+    <file>tests</file>
+
+    <rule ref="Finetic"/>
+
+    <arg name="extensions" value="php"/>
+    <arg name="cache"/>
+</ruleset>
