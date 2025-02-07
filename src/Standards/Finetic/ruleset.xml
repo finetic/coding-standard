@@ -80,6 +80,9 @@
     <!-- 3rd party: Slevomat coding standard rules -->
     <!-- See: https://github.com/slevomat/coding-standard -->
     <rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma"/>
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInCall"/>
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInClosureUse"/>
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInDeclaration"/>
 
     <rule ref="SlevomatCodingStandard.Classes.BackedEnumTypeSpacing"/>
     <rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
