@@ -4,7 +4,7 @@
     "type": "phpcodesniffer-standard",
     "license": "MIT",
     "require": {
-        "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+        "php": ">=8.2",
         "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
         "slevomat/coding-standard": "^8.23",
         "squizlabs/php_codesniffer": "^4.0"
