@@ -1,17 +1,34 @@
 Finetic Coding Standard
 ===========
 
-Extending the default [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) with Finetic rules
+Extending [PHP_CodeSniffer](https://github.com/PHPCSStandards/PHP_CodeSniffer) with Finetic rules.
 
 **Note**: Adding new phpcs-rules to this package must result in a major version update!
 
+### Requirements
+
+- PHP 8.2 or later
+- PHP_CodeSniffer 4 (installed automatically through Composer)
+
 ### Installation
 
-Require the package:
+Require version 5 of the package:
 
 ```
-composer require --dev finetic/coding-standard
+composer require --dev finetic/coding-standard:^5.0
 ```
+
+### Upgrading to version 5
+
+Version 5 raises the minimum PHP version to 8.2 and requires PHP_CodeSniffer 4.
+If your project uses additional PHP_CodeSniffer standards or custom sniffs,
+ensure they support PHP_CodeSniffer 4 and update all dependencies together:
+
+```
+composer update --with-all-dependencies
+```
+
+See the [changelog](CHANGELOG.md) for all breaking changes and migration steps.
 
 ### Setup
 Create a `phpcs.xml` or `phpcs.xml.dist`-file in the root of your project, and include the default Finetic ruleset:
@@ -39,7 +56,7 @@ Since you now have a `phpcs.xml` file in the root of your project, you can run t
 
 ### More information
 
-For more information on how to use PHP CodeSniffer, check the [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) repository.
+For more information on how to use PHP CodeSniffer, check the [PHP CodeSniffer](https://github.com/PHPCSStandards/PHP_CodeSniffer) repository.
 
 ### Contributing
 
