@@ -25,10 +25,7 @@ class DisallowGotoOperatorSniff implements Sniff
         ];
     }
 
-    /**
-     * @param int $stackPtr
-     */
-    public function process(File $phpcsFile, $stackPtr): void
+    public function process(File $phpcsFile, int $stackPtr): void
     {
         $phpcsFile->addError(self::ERROR_MESSAGE, $stackPtr, self::ERROR_CODE);
     }
