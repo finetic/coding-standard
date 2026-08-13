@@ -3,5 +3,8 @@
 /.phpcs.cache
 /coverage/
 /.idea/
+/.vscode/
 /.DS_Store
+Thumbs.db
+Desktop.ini
 composer.lock
