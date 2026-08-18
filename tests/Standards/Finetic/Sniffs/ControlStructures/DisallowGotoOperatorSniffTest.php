@@ -7,9 +7,11 @@ namespace FineticCodingStandard\Tests\Standards\Finetic\Sniffs\ControlStructures
 use FineticCodingStandard\Standards\Finetic\Sniffs\ControlStructures\DisallowGotoOperatorSniff;
 use FineticCodingStandard\Tests\BaseTestCase;
 use PHP_CodeSniffer\Exceptions\DeepExitException;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function sprintf;
 
+#[CoversClass(DisallowGotoOperatorSniff::class)]
 class DisallowGotoOperatorSniffTest extends BaseTestCase
 {
     /**
@@ -24,10 +26,7 @@ class DisallowGotoOperatorSniffTest extends BaseTestCase
             ->setFolder(sprintf('%s/Assets/', __DIR__));
     }
 
-    /**
-     * @covers DisallowGotoOperatorSniff
-     * @throws DeepExitException
-     */
+    /** @throws DeepExitException */
     public function testSniff(): void
     {
         $results = $this->codeSnifferRunner->sniff('DisallowGotoOperatorSniff.inc');
