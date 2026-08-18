@@ -2,9 +2,12 @@ name: CI
 
 on:
   pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
   push:
-    branches:
-      - main
   workflow_dispatch:
   workflow_call:
     inputs:
@@ -53,3 +56,26 @@ jobs:
 
       - name: Check coding standard
         run: vendor/bin/phpcs --standard=phpcs.xml.dist
+
+  pr-ready:
+    name: PR Ready Notification
+    runs-on: ubuntu-latest
+    if: >
+      success() &&
+      github.event_name == 'pull_request' &&
+      github.event.action != 'synchronize' &&
+      github.event.pull_request.draft == false &&
+      !contains(github.event.pull_request.labels.*.name, 'release')
+    needs: [test]
+
+    steps:
+      - name: Notify PR ready
+        uses: finetic/deployers/slack-notify@main
+        with:
+          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL_PULL_REQUESTS }}
+          message: |
+            👀 PR klaar voor review
+            Project: ${{ github.event.repository.name }}
+            PR: ${{ github.event.pull_request.title }}
+            Auteur: ${{ github.actor }}
+            Link: ${{ github.event.pull_request.html_url }}
